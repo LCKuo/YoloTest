@@ -1,0 +1,21 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "GSP"
+    },
+    {
+      "id": 1,
+      "name": "SG"
+    },
+    {
+      "id": 2,
+      "name": "WB"
+    }
+  ],
+  "info": {
+    "year": 2024,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}

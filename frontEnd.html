@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YOLO Object Detection App</title>
+</head>
+<body>
+    <h1>YOLO Object Detection App</h1>
+
+    <h2>Training</h2>
+    <form id="train-form" enctype="multipart/form-data">
+        <input type="file" name="dataset" accept=".zip">
+        <button type="submit">Train Model</button>
+    </form>
+    <div id="training-status"></div>
+
+    <h2>Prediction</h2>
+    <form id="predict-form" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Predict Objects</button>
+    </form>
+    <div id="prediction-results"></div>
+
+    <script>
+        const trainForm = document.getElementById('train-form');
+        const trainingStatusDiv = document.getElementById('training-status');
+        const predictForm = document.getElementById('predict-form');
+        const predictionResultsDiv = document.getElementById('prediction-results');
+
+        trainForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(trainForm); 
+            try {
+                const response = await fetch('/train', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                trainingStatusDiv.innerHTML = `<p>${data.message}</p>`;
+            } catch (error) {
+                console.error('Training error:', error);
+                trainingStatusDiv.innerHTML = '<p>Error during training!</p>';
+            }
+        });
+
+        predictForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(predictForm); 
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                predictionResultsDiv.innerHTML = `<p>Predictions: ${JSON.stringify(data.predictions)}</p>`;
+            } catch (error) {
+                console.error('Prediction error:', error);
+                predictionResultsDiv.innerHTML = '<p>Error during prediction!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
+

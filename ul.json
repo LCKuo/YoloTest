@@ -1,0 +1,23 @@
+{
+  "data": {
+    "image": "C:\\image\\99.jpg",
+    "objects": [
+      {
+        "value": "SGP",
+        "html": "<img width='100' src='C:\\image\\1.jpg'/>"
+      },
+      {
+        "value": "WB",
+        "html": "<img width='100' src='C:\\image\\2.jpg'/>"
+      },
+      {
+        "value": "Main",
+        "html": "<img width='100' src='C:\\image\\3.jpg'/>"
+      },
+      {
+        "value": "SG",
+        "html": "<img width='100' src='C:\\image\\4.jpg'/>"
+      }
+    ]
+  }
+}

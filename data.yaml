@@ -1,0 +1,7 @@
+names:
+- GSP
+- SG
+- WB
+nc: 3
+train: C:/Users/User/Desktop/Ult/dataset/images
+val: C:/Users/User/Desktop/Ult/dataset/images
